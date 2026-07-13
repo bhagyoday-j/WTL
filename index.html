@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Ice N Spice | Kopargaon</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .active-section {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ice-gradient {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+        }
+        .spice-accent {
+            color: #ea580c;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold tracking-tighter">
+                        <span class="text-sky-500">ICE</span><span class="text-orange-600"> N </span><span class="text-orange-500">SPICE</span>
+                    </span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="nav-link font-medium">Home</a>
+                    <a href="javascript:void(0)" onclick="showPage('rooms')" class="nav-link font-medium">Rooms</a>
+                    <a href="javascript:void(0)" onclick="showPage('dining')" class="nav-link font-medium">Spice Dining</a>
+                    <a href="javascript:void(0)" onclick="showPage('gallery')" class="nav-link font-medium">Gallery</a>
+                    <a href="javascript:void(0)" onclick="showPage('contact')" class="nav-link font-medium">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg">
+            <a href="javascript:void(0)" onclick="showPage('home')" class="block font-medium">Home</a>
+            <a href="javascript:void(0)" onclick="showPage('rooms')" class="block font-medium">Rooms</a>
+            <a href="javascript:void(0)" onclick="showPage('dining')" class="block font-medium">Spice Dining</a>
+            <a href="javascript:void(0)" onclick="showPage('gallery')" class="block font-medium">Gallery</a>
+            <a href="javascript:void(0)" onclick="showPage('contact')" class="block font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active-section">
+            <div class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+                <img src="https://images.pexels.com/photos/29000046/pexels-photo-29000046.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1600" alt="Hotel Interior" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative text-center text-white px-4">
+                    <h1 class="text-5xl md:text-7xl mb-4">Experience the Perfect Blend</h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Luxury as cool as ice, hospitality as warm as spice. Welcome to Kopargaon's finest stay.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="showPage('rooms')" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-semibold transition transform hover:scale-105">Book Your Stay</button>
+                        <button onclick="showPage('dining')" class="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white border border-white px-8 py-3 rounded-full font-semibold transition transform hover:scale-105">Explore Dining</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="max-w-7xl mx-auto py-20 px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center p-8 rounded-2xl ice-gradient shadow-sm">
+                        <div class="w-16 h-16 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-bed text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Luxe Comfort</h3>
+                        <p class="text-gray-600">Plush bedding and modern amenities designed for the ultimate relaxation.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-orange-50 shadow-sm border border-orange-100">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-utensils text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Spice Dining</h3>
+                        <p class="text-gray-600">Authentic multi-cuisine restaurant serving flavors that ignite your senses.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl ice-gradient shadow-sm">
+                        <div class="w-16 h-16 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-map-marker-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Prime Location</h3>
+                        <p class="text-gray-600">Conveniently located on Shirdi-Manmad Highway for easy accessibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROOMS PAGE -->
+        <section id="rooms" class="page-section py-16 px-4 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-4">Our Accommodations</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Deluxe Room -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.pexels.com/photos/2736384/pexels-photo-2736384.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800" alt="Deluxe Room" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-sky-500 text-white px-4 py-1 rounded-full text-sm font-bold">Recommended</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-2">Deluxe Comfort Room</h3>
+                        <p class="text-gray-600 mb-6">A perfect mix of "Ice" cool aesthetics and cozy comfort. Ideal for solo travelers and couples.</p>
+                        <ul class="space-y-2 mb-8 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-sky-500 mr-2"></i> King Size Bed</li>
+                            <li><i class="fas fa-check text-sky-500 mr-2"></i> High-speed WiFi</li>
+                            <li><i class="fas fa-check text-sky-500 mr-2"></i> 24/7 Room Service</li>
+                        </ul>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-orange-600">₹ 2,499<span class="text-sm text-gray-400">/night</span></span>
+                            <button onclick="showPage('contact')" class="bg-sky-600 text-white px-6 py-2 rounded-lg hover:bg-sky-700 transition">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Executive Room -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.pexels.com/photos/3688261/pexels-photo-3688261.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800" alt="Executive Room" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">Premium</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-2">Spice Executive Suite</h3>
+                        <p class="text-gray-600 mb-6">Spacious and elegant, featuring premium interiors and a dedicated work area.</p>
+                        <ul class="space-y-2 mb-8 text-sm text-gray-500">
+                            <li><i class="fas fa-check text-orange-500 mr-2"></i> Twin/King Configuration</li>
+                            <li><i class="fas fa-check text-orange-500 mr-2"></i> Luxury Toiletries</li>
+                            <li><i class="fas fa-check text-orange-500 mr-2"></i> Mini Bar & Coffee Maker</li>
+                        </ul>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-orange-600">₹ 3,999<span class="text-sm text-gray-400">/night</span></span>
+                            <button onclick="showPage('contact')" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DINING PAGE -->
+        <section id="dining" class="page-section py-16 ice-gradient">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-orange-600 font-bold tracking-widest uppercase">The Spice Restaurant</span>
+                        <h2 class="text-4xl md:text-5xl mt-2 mb-6">A Symphony of Flavors</h2>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Our in-house restaurant "Spice" brings you the best of Maharashtrian, North Indian, and Chinese cuisines. Every dish is prepared with fresh ingredients and authentic spices to ensure a memorable culinary journey.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 shadow-sm"><i class="fas fa-leaf"></i></div>
+                                <span class="font-medium">Pure Veg Options</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 shadow-sm"><i class="fas fa-pepper-hot"></i></div>
+                                <span class="font-medium">Authentic Spices</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 shadow-sm"><i class="fas fa-clock"></i></div>
+                                <span class="font-medium">Breakfast to Dinner</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 shadow-sm"><i class="fas fa-truck"></i></div>
+                                <span class="font-medium">Home Delivery</span>
+                            </div>
+                        </div>
+                        <button class="bg-orange-600 text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-orange-200 hover:bg-orange-700 transition">View Full Menu</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.pexels.com/photos/26729406/pexels-photo-26729406.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=400" alt="Restaurant Interior" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8">
+                        <img src="https://images.pexels.com/photos/2291594/pexels-photo-2291594.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=400" alt="Food Dish" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        <img src="https://images.pexels.com/photos/29000037/pexels-photo-29000037.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=400" alt="Dining Table" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        <img src="https://images.pexels.com/photos/6466301/pexels-photo-6466301.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=400" alt="Service" class="rounded-2xl shadow-lg w-full h-64 object-cover -mt-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY PAGE -->
+        <section id="gallery" class="page-section py-16 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl mb-4">Visual Tour</h2>
+                    <p class="text-gray-500">Glimpses of luxury and comfort at Hotel Ice N Spice</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="overflow-hidden rounded-2xl h-80 shadow-md cursor-pointer hover:shadow-xl transition">
+                        <img src="https://images.pexels.com/photos/2736388/pexels-photo-2736388.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl h-80 shadow-md cursor-pointer hover:shadow-xl transition">
+                        <img src="https://images.pexels.com/photos/29000046/pexels-photo-29000046.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl h-80 shadow-md cursor-pointer hover:shadow-xl transition">
+                        <img src="https://images.pexels.com/photos/2291598/pexels-photo-2291598.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl h-80 shadow-md cursor-pointer hover:shadow-xl transition">
+                        <img src="https://images.pexels.com/photos/26729406/pexels-photo-26729406.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl h-80 shadow-md cursor-pointer hover:shadow-xl transition">
+                        <img src="https://images.pexels.com/photos/3688261/pexels-photo-3688261.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-2xl h-80 shadow-md cursor-pointer hover:shadow-xl transition">
+                        <img src="https://images.pexels.com/photos/29000037/pexels-photo-29000037.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800" class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact" class="page-section py-16 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100">
+                        <h2 class="text-3xl font-bold mb-6">Plan Your Visit</h2>
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Full Name</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Phone Number</label>
+                                    <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition" placeholder="+91 XXXXX XXXXX">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Service</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition">
+                                    <option>Room Booking</option>
+                                    <option>Restaurant Reservation</option>
+                                    <option>Event Inquiry</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition" placeholder="Tell us your requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-orange-600 text-white py-4 rounded-xl font-bold hover:bg-orange-700 shadow-lg shadow-orange-100 transition">Send Message</button>
+                        </form>
+                    </div>
+                    <!-- Location Details -->
+                    <div class="flex flex-col justify-center">
+                        <h2 class="text-3xl font-bold mb-8">Reach Us</h2>
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Our Address</h4>
+                                    <p class="text-gray-600">Hotel Ice N Spice, Yeola Naka, Kopargaon Shardanagar, Shirdi - Manmad Highway, Kopargaon, Maharashtra 423601</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Call Us</h4>
+                                    <p class="text-gray-600">+91 0000 000 000<br>+91 9999 999 999</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Email Us</h4>
+                                    <p class="text-gray-600">info@hotelicenspice.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Simple Map Placeholder -->
+                        <div class="mt-12 h-64 bg-gray-200 rounded-3xl overflow-hidden relative">
+                             <div class="absolute inset-0 flex items-center justify-center text-gray-500 flex-col">
+                                <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                                <p class="text-sm font-medium">Interactive Map View</p>
+                                <p class="text-xs">Yeola Naka, Kopargaon</p>
+                                <a href="https://maps.google.com/?q=Hotel+Ice+N+Spice+Kopargaon" target="_blank" class="mt-4 text-orange-600 underline">Open in Google Maps</a>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-center md:text-left">
+            <div>
+                <span class="text-2xl font-bold tracking-tighter text-white mb-2 block">
+                    <span class="text-sky-400">ICE</span><span class="text-orange-500"> N SPICE</span>
+                </span>
+                <p class="max-w-xs">The finest hospitality experience in the heart of Kopargaon.</p>
+            </div>
+            <div class="flex space-x-6 text-xl">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="text-sm">
+                &copy; 2024 Hotel Ice N Spice. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Page Routing Logic
+        function showPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // Show selected section
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active-section');
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Handing
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you shortly regarding your request.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
