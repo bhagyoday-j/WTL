@@ -83,14 +83,18 @@ header {
 
 /* Hero Section */
 .hero {
-    height: 80vh;
+    min-height: 80vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542314831-c6a4d27ce66b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
-    padding: 0 2rem;
+    padding: 3rem 2rem;
+}
+
+.hero-content {
+    width: min(100%, 700px);
 }
 
 .hero h1 {
@@ -102,10 +106,52 @@ header {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.weather-widget {
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    margin: 0 auto 1.5rem;
+    max-width: 420px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.weather-top {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+}
+
+.weather-icon {
+    font-size: 2.2rem;
+}
+
+.weather-temp {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 .btn {
